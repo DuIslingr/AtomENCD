@@ -111,7 +111,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="files\criatomencd.exe.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -123,15 +122,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="files\AsyncAudioEncoder.dll" />
-    <Content Include="files\AudioStream.dll" />
-    <Content Include="files\criatomencd.exe" />
-    <Content Include="files\CriAtomEncoderComponent.dll" />
-    <Content Include="files\CriAtomGears.dll" />
-    <Content Include="files\CriSamplingRateConverter.dll" />
-    <Content Include="files\hcaenc.dll" />
-    <Content Include="files\hcaenc_lite.dll" />
-    <Content Include="files\vsthost.dll" />
+    <Folder Include="files\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
