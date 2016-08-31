@@ -1,6 +1,7 @@
 This is a frontend GUI for use with criatomencd to encode audio files compatible with various games that use CriWare.
 
 License
+
 Copyright (c) 2016, Du' Islingr
 
 Permission to use, copy, modify, and/or distribute this software for any purpose
