@@ -1,0 +1,65 @@
+﻿<Controls:MetroWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:AtomENCD"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+        x:Class="AtomENCD.MainWindow"
+        Title="AtomENCD" Height="251" Width="694"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}">
+    <Grid Margin="0,0,0,4">
+        <Button x:Name="button" Content="..." Width="43" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,37,117,0" Height="25.625" Panel.ZIndex="1" Click="button_Click_1"/>
+        <Label x:Name="label" Content="Select Input Audio File" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="138"/>
+        <Button x:Name="encodebutton" Content="Encode" HorizontalAlignment="Left" Margin="596,37,0,0" VerticalAlignment="Top" Width="80" Height="25.625" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="encodebutton_Click"/>
+        <ToggleButton x:Name="LoopEnable" Content="ToggleButton" HorizontalAlignment="Right" Margin="0,65,17.003,0" VerticalAlignment="Top" Height="30.554" Width="34"/>
+        <Label x:Name="label1" Content="Loop" HorizontalAlignment="Right" Margin="0,65,51.003,0" VerticalAlignment="Top" Height="30.554" Width="48.997"/>
+        <GroupBox x:Name="groupBox" Header="Loop Options" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Height="133" Width="245" >
+            <Grid Margin="0,0,0,-59" Width="231.5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="45*"/>
+                    <ColumnDefinition Width="13*"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="label2" Content="Loop All" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <ToggleButton x:Name="loopmodetoggle" Content="ToggleButton" Margin="57,0,52,0" VerticalAlignment="Top" Height="27" IsEnabled="{Binding ElementName=LoopEnable, Path=IsChecked}" />
+                <Label x:Name="label3" Content="Custom Loop" Margin="0,0,9.5,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="89" Grid.ColumnSpan="2"/>
+                <Label x:Name="label4" Content="Start" HorizontalAlignment="Left" Margin="0,32,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label5" Content="End" HorizontalAlignment="Right" Margin="0,32,15,0" VerticalAlignment="Top" RenderTransformOrigin="-0.308,0.392"/>
+                <TextBox x:Name="loopstartbox" Margin="0,60,0,64" TextWrapping="Wrap" HorizontalAlignment="Left" Width="99" Foreground="#DD000000" Background="White" IsEnabled="{Binding ElementName=loopmodetoggle, Path=IsChecked}" FontWeight="Bold"/>
+                <TextBox x:Name="loopendbox" HorizontalAlignment="Right" Margin="0,60,-0.5,64" TextWrapping="Wrap" Width="99" Background="White" Foreground="#DD000000" Grid.ColumnSpan="2" IsEnabled="{Binding ElementName=loopmodetoggle, Path=IsChecked}" FontWeight="Bold"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="groupBox1" Header="Codec" HorizontalAlignment="Right" Margin="0,100.554,10,6" Width="90">
+            <Grid Margin="0,0,0,-33" Width="80">
+                <RadioButton x:Name="adxradio" Content="ADX" VerticalAlignment="Top" HorizontalAlignment="Left" IsChecked="True"/>
+                <RadioButton x:Name="hcaradio" Content="HCA" Margin="0,24.29,10,0" VerticalAlignment="Top" d:LayoutOverrides="Width"/>
+                <RadioButton x:Name="hcamxradio" Content="HCA-MX" Margin="0,48.58,0,31.576" d:LayoutOverrides="Height"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="groupBox2" Header="ReSampling" Margin="260,77,286,6">
+            <Grid Margin="0,-9,0,-9.446" Width="142">
+                <Label x:Name="label6" Content="Rate" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBox x:Name="ratebox" Margin="0,27.29,0,0" TextWrapping="Wrap" Text="48000" Height="24" VerticalAlignment="Top" Background="White" Foreground="#DD000000" FontWeight="Bold" ToolTip="Valid Rate for all codecs is 1000-48000. If you don't know what this is, then just leave it at the default."/>
+                <Label x:Name="label7" Content="Default" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="-4.73,0,0,10"/>
+                <Label x:Name="label8" Content="Quality" HorizontalAlignment="Left" Margin="38.565,52.129,0,29.02" Width="51.043" d:LayoutOverrides="Height"/>
+                <Label x:Name="label9" Content="High" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" Width="42.392"/>
+                <ToggleButton x:Name="sampletoggle" Content="ToggleButton" VerticalAlignment="Bottom" Margin="46.783,0,52.393,12.312"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="groupBox3" Header="Encode Quality" Margin="0,77,117,6" HorizontalAlignment="Right" Width="164">
+            <Grid Margin="0,0,0,-9.446" Width="152">
+                <RadioButton x:Name="lowestencradio" Content="Lowest" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,3.263,0,0"/>
+                <RadioButton x:Name="lowencradio" Content="Low" Margin="0,3.263,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="51.001"/>
+                <RadioButton x:Name="middleencradio" Content="Middle" Margin="43,36.553,43,43.603" d:LayoutOverrides="Height" IsChecked="True"/>
+                <RadioButton x:Name="highencradio" Content="High" Margin="0,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="61.853"/>
+                <RadioButton x:Name="highestencradio" Content="Highest" Margin="70.999,0,10,10" VerticalAlignment="Bottom"/>
+            </Grid>
+        </GroupBox>
+        <TextBox x:Name="FileTextBox" Height="25.625" Margin="10,37,123.667,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="White" Foreground="#DD000000" IsEnabled="False"/>
+    </Grid>
+</Controls:MetroWindow>
